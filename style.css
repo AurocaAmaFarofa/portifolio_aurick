@@ -1,0 +1,95 @@
+:root{
+    --cor-primaria: #a3c5f1; /*azul clarinho*/
+    --cor-secundaria: #83A2CD; /*azul claro*/
+    --cor-terciaria: #4B6387 ; /*azul médio*/
+    --cor-quartaria: #1E2B40 ; /*azul escuro*/
+    --cor-quintaria: #0C121D ; /*azul escurao*/
+    --texto-claro: white; /*branco*/
+    --texto-escuro: #1b1b1b; /*qse preto*/
+    --sombra: rgb(163, 197, 241, 0.3); /*sombra azul clara*/
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--cor-quintaria);
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 140px;
+    padding: 10px;
+    padding-top: 200px;
+    letter-spacing: 60px;
+    color: var(--texto-claro);
+}
+
+.banner_Sobe{
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  position: relative;
+  justify-content: center;
+  z-index: 1;
+}
+
+.titulo_Banner{
+  color: var(--texto-claro);
+  font-size: 100px;
+  font-weight: 700;
+  padding: 0 20px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  font-size: 210px;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.titulo_Da_Frente{
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  z-index: 2;
+}
+
+.imagem_Banner{
+  border-radius: 15px;
+  position: fixed;
+  transform: rotate(-98deg);
+  transition: transform 0.4s ease;
+  width: 480px;
+  box-shadow: 0 10px 100px var(--sombra);
+  z-index: 1;
+}
+
+.imagem_Banner:hover{
+  transform: rotate(-90deg) scale(1.2);
+  transition: transform 0.4s;;
+}
+
+.conteudo{
+  background-color: var(--texto-claro);
+  font-size: 40px;
+  padding: 120px 80px;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+}

@@ -7,7 +7,28 @@
     --texto-claro: white; /*branco*/
     --texto-escuro: #1b1b1b; /*qse preto*/
     --sombra: rgb(163, 197, 241, 0.3); /*sombra azul clara*/
+    --sombra-preta: rgba(0, 0, 0, 0.7); /*sombra preta*/
+    --sombra-preta-hover: 0 10px 30px rgba(0, 0, 0, 2); /*sombra preta mais escura para hover*/
 }
+
+@font-face {
+    font-family: 'Dirtyline36Daysoftype2022';
+    src: url('Dirtyline 36daysoftype 2022.eot'); /* IE9 Compat Modes */
+    src: url('Dirtyline 36daysoftype 2022.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Dirtyline 36daysoftype 2022.woff') format('woff'), /* Modern Browsers */
+         url('Dirtyline 36daysoftype 2022.woff2') format('woff2'), /* Modern Browsers */
+         url('Dirtyline 36daysoftype 2022.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'FonteProSobreMim';
+  src: url('https://www.fontsquirrel.com/fonts/antonionio-regular-webfont.woff2') format('woff2'),
+       url('https://www.fontsquirrel.com/fonts/antonio-regular-webfont.woff') format('woff');
+}
+
 
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
@@ -29,18 +50,6 @@ body{
     background-color: var(--cor-quintaria);
 }
 
-.titulo{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: "Bebas Neue";
-    font-size: 140px;
-    padding: 10px;
-    padding-top: 200px;
-    letter-spacing: 60px;
-    color: var(--texto-claro);
-}
-
 .banner_Sobe{
   align-items: center;
   display: flex;
@@ -48,6 +57,18 @@ body{
   position: relative;
   justify-content: center;
   z-index: 1;
+}
+
+.banner_Sobe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 600px;
+  z-index: 2;
+  background: linear-gradient(to bottom, transparent, white);
+  pointer-events: none;
 }
 
 .titulo_Banner{
@@ -62,6 +83,8 @@ body{
   font-size: 210px;
   transition: 0.2s;
   z-index: 1;
+  font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+  text-shadow: 0 0 20px rgb(red, green, blue);
 }
 
 .titulo_Da_Frente{
@@ -75,9 +98,10 @@ body{
   position: fixed;
   transform: rotate(-98deg);
   transition: transform 0.4s ease;
-  width: 480px;
+  width: 600px;
   box-shadow: 0 10px 100px var(--sombra);
   z-index: 1;
+  background-color: var(--cor-quartaria);
 }
 
 .imagem_Banner:hover{
@@ -88,8 +112,174 @@ body{
 .conteudo{
   background-color: var(--texto-claro);
   font-size: 40px;
-  padding: 120px 80px;
-  height: 100vh;
+  padding: 80px 80px;
   position: relative;
-  z-index: 10;
+  z-index: 2;
+}
+
+.menu{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--cor-quintaria);
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.menu nav{
+    display: flex;
+    justify-content: center;
+}
+
+.menu nav a{
+  color: var(--texto-claro);
+  font-size: 20px;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: all 0.4s;
+}
+
+.menu nav a:hover{
+  transform: scale(1.2);
+  transition: all 0.4s;
+}
+
+.conteudo h1{
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
+.Titulo_Sobre{
+  font-family: 'FonteProSobreMim';
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.conteudo p{
+  font-size: 35px;
+  text-align: center;
+  margin: 20px 0 45px 0;
+}
+
+.Foto_Minha{
+  border-radius: 10%;
+  display: block;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 5px 20px var(--sombra-preta);
+  width: 600px;
+  height: auto;
+  margin-bottom: 150px;
+}
+
+.titulo_sobre h2{
+  font-size: 130px;
+  line-height: 0.8;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  margin-top: 60px;
+}
+
+.titulo_sobre{
+  font-family: 'FonteProSobreMim';
+  text-align: center;
+  margin-left: 150px;
+}
+
+.texto_sobre{
+  font-size: 100px;
+  max-width: 500px;
+  align-self: flex-end;
+  margin-right: 310px;
+  margin-bottom: 100px;
+}
+
+.lado_direito{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.Conteudo_Sobre{
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+  align-items: end;
+  position: relative;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card{
+  width: 500px;
+  background-color: var(--cor-quartaria);
+  border-radius: 10px;
+  color: var(--texto-claro);
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 5px 20px var(--sombra-preta);
+  border-left: #4B6387 solid 8px;
+  transition: all 0.4s;
+  min-height: 450px;
+}
+
+.card h3{
+  padding-bottom: 5px;
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.Cards_Linha{
+  border-style: dashed;
+  border-width: 1px;
+  color: var(--texto-claro);
+  margin-bottom: 20px;
+}
+
+.card p{
+  font-size: 30px;
+  text-align: left;
+}
+
+.card a{
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--texto-claro);
+  font-size: 25px;
+  text-decoration: none;
+  background-color: var(--cor-terciaria);
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.4s;
+  width: 200px;
+  margin: 20px auto;
+}
+
+.card a:hover{
+  background-color: var(--cor-secundaria);
+  transition: all 0.4s;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  transition: all 0.4s;
+  box-shadow: var(--sombra-preta-hover);
+}
+
+.Titulo_Projetos{
+  font-family: 'FonteProSobreMim';
+  font-size: 80px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--cor-quartaria);
 }
